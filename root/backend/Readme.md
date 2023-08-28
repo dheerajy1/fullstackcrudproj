@@ -22,8 +22,6 @@ Postman for testing of API.
 
 6. Github account
 
-
-
 # I. MS SQL Server
 
 ## Pre-requisites
@@ -134,8 +132,6 @@ SNI - SQL Server Network Interface Protocol Layer
 
 We need the port number for configuration and the connection string in the code to connect the node.js to the MS SQL Server.
 
-
-
 # II. Terminal
 
 To list all logicaldisks,
@@ -201,6 +197,7 @@ Once you are in the desired directory, use the `git clone` command followed by y
 ```
 git clone https://github.com/your-username/your-repository.git
 ```
+
 To commit the changes you made in Git,  follow these steps:
 
 Check the status of your changes, This will show you which files have been modified or added,
@@ -208,16 +205,21 @@ Check the status of your changes, This will show you which files have been modif
 ```
 git status
 ```
+
 Stage your changes,
 
 stage all changes in the current directory,
+
 ```
 git add .
 ```
+
 stage-specific files, you can list their names after,
+
 ```
 git add
 ```
+
 After staging your changes, you can create a commit, include a commit message to describe the changes made,
 
 ```
@@ -229,9 +231,6 @@ These steps will commit the changes you made to your local repository. Remember 
 ```
 git push
 ```
-
-
-
 
 Finally,
 
@@ -248,8 +247,6 @@ code -r .
 ```
 
 You can also perform the above commands inside VS Code terminal too.
-
-
 
 # III. VS Code
 
@@ -385,7 +382,7 @@ npm install --save-dev dotenv nodemon
 "start": "nodemon app.js"
 ```
 
-```
+```Powershell
 npm install bcrypt jsonwebtoken
 ```
 
@@ -394,8 +391,6 @@ Starting the server run the following command,
 ```
 npm start
 ```
-
-
 
 ## Creating folders 📂 and files 📄
 
@@ -423,8 +418,6 @@ npm start
 8. Create auth 📂
 
     - create token\_validation.js file 📄
-
-
 
 ## ii. .env file 📄
 
