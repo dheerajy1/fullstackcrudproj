@@ -455,3 +455,122 @@ The following specified files and directories should be ignored by Git, meaning 
 node_modules
 route.rest
 ```
+
+## iv. database.js file 📄
+
+Import mssql module,
+Pending.
+
+## <mark>v. app.js File</mark> 📄
+
+### a. Import express module,
+
+The `express` module is used to create a web server,
+
+```javascript
+const express = require("express");
+```
+
+An instance of the Express application,
+
+```javascript
+const app = express();
+```
+
+The line `const app = express();` is used to create an instance of the Express application.
+
+It initializes and sets up the Express framework, allowing you to use its features and functionalities.
+
+The `app` object represents the Express application and can be used to define routes, handle HTTP requests and responses, configure middleware, and more.
+
+It is the central object you work with when building a web application using Express.js.
+
+### b. import .env package,
+
+The `dotenv` package allows developers to store sensitive configuration data, such as API keys or database credentials, in a separate .env file, keeping them separate from the codebase
+
+```javascript
+require("dotenv").config();
+```
+
+The line `require("dotenv").config();` is used to load environment variables from a .env file into the Node.js application.
+
+The environment variables in app.js are,
+
+1. APP\_PORT = 0000
+    
+
+---
+
+### Testing a GET API endpoint with Express.js,
+
+> Skip this if you don't want to test your API.
+
+```javascript
+app.get('/api', (req, res) => {
+    res.json({
+        success: 1,
+        message: 'This is rest API, Working'
+    });
+});
+```
+
+The code snippet `app.get('./api', (req, res) => { ... })` is defining a route for handling HTTP GET requests to the '/api' endpoint.
+
+* When a GET request is made to that endpoint, the provided callback function will be executed.
+    
+* Inside the callback function, the response object `res` is used to send a JSON response back to the client.
+    
+* The JSON response includes a `success` property set to 1 and a `message` property set to 'This is rest API Working'.
+    
+
+Summary:
+
+* The code snippet demonstrates how to define a GET API endpoint using Express.js.
+    
+* When a GET request is made to the '/api' endpoint, a JSON response is sent back to the client with a success status of 1 and a message indicating that the REST API is working.
+    
+
+Starting the Express Server and Listening on a Port,
+
+```javascript
+app.listen(process.env.APP_PORT, () => {
+    console.log("server up and running");
+});
+```
+
+The code `app.listen(3000, () => { ... })` is used to start the Express application and listen for incoming HTTP requests on a specified port.
+
+* The APP\_PORT represents the port number on which the server will listen.
+    
+* When the server starts and begins accepting requests, the provided callback function is executed.
+    
+* In this case, the callback function logs a message to the console indicating that the server is up and running.
+    
+
+Summary:
+
+* This code snippet demonstrates how to start an Express server and make it listen for incoming HTTP requests on a specified port.
+    
+* Once the server is up and running, a message is logged to the console confirming the port on which the server is listening.
+    
+
+Then, to test, go to the browser to view the JSON output,
+
+```sql
+http://localhost:0000/api
+```
+
+# Faced an issue:
+
+Error: GET [http://localhost:0000/api](http://localhost:3000/api) 404 (Not Found)
+
+Later found, the end point was having './api' instead of '/api'
+
+Finally, Tested API successfully.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1709396549072/f431f1c9-b6b6-4eeb-864d-54251e897f95.png)
+
+---
+
+
