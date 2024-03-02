@@ -424,7 +424,7 @@ npm start
 define the following variables which will be used in the subsequent files,
 
 ```
-APP_PORT = 3000
+APP_PORT = 0000
 
 MSSQL_HOST = localhost
 MSSQL_PORT = find
