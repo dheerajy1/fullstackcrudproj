@@ -459,9 +459,89 @@ route.rest
 ## iv. database.js file 📄
 
 Import mssql module,
-Pending.
 
-## <mark>v. app.js File</mark> 📄
+### a. "mssql" Package and the "createPool" Function
+
+```javascript
+const { ConnectionPool } = require("mssql");
+```
+
+The code `const { ConnectionPool } = require("mssql");` imports the `connectionPool` function from the "mssql" package in Node.js.
+
+* This package provides an interface for interacting with Microsoft SQL Server databases.
+    
+* The `connectionPool` function allows you to create a connection pool for efficiently managing multiple connections to a SQL Server database.
+    
+* It takes an object as an argument, which contains the necessary configuration details. The function simplifies executing queries and transactions on the database.
+    
+
+Summary,
+
+* The "mssql" package in Node.js offers functionality for working with Microsoft SQL Server databases.
+    
+* The `connectionPool` function allows the creation of a connection pool for efficient management of multiple connections.
+    
+* It simplifies database interaction by providing an interface to execute queries and transactions.
+    
+
+Navigate to this Npmjs documentation \[[Link](https://www.npmjs.com/package/mssql)\].
+
+### b. Creating a Database Connection Pool using the "ConnectionPool" Method
+
+```javascript
+const pool = ConnectionPool({
+  host: localhost,
+  port: 0000,
+  user: loginname,
+  password: "",
+  database: test,
+  connectionLimit: 10,
+});
+```
+
+However, we will rewrite & use environment variables for the above code snippet to mask the deetails as it is sensitive info,
+
+```javascript
+const pool = createPool({
+  host: process.env.MSSQL_HOST,
+  port: process.env.MSSQL_PORT,
+  user: process.env.MSSQL_USER,
+  password: process.env.MSSQL_PASSWORD,
+  database: process.env.MSSQL_DATABASE,
+  connectionLimit: 10,
+});
+```
+
+The code snippet attempts to create a database connection pool using the `ConnectionPool` function.
+
+* The provided configuration includes properties such as the host, port, user, password, database, and connection limit.
+    
+* The specified properties in the object include the host, port, user, password, database, and connection limit for the pool.
+    
+
+### c. Exporting the Database Connection Pool in Node.js
+
+```javascript
+module.exports = pool;
+```
+
+The code snippet `module.exports = pool;` exports the `pool` variable, which represents the database connection pool.
+
+This allows other modules or files in the Node.js application to import and use the `pool` variable for executing database queries and managing connections. \[like in user.service.js file 📄\]
+
+The environment variables in database.js are,
+
+1. MSSQL\_HOST =
+    
+2. MSSQL\_PORT =
+    
+3. MSSQL\_USER =
+    
+4. MSSQL\_PASSWORD =
+    
+5. MSSQL\_DATABASE =
+
+## v. app.js File 📄
 
 ### a. Import express module,
 
@@ -487,7 +567,7 @@ It is the central object you work with when building a web application using Exp
 
 ### b. import .env package,
 
-The `dotenv` package allows developers to store sensitive configuration data, such as API keys or database credentials, in a separate .env file, keeping them separate from the codebase
+The `dotenv` package allows developers to store sensitive configuration data, such as API keys or database credentials, in a separate .env file, keeping them separate from the codebase.
 
 ```javascript
 require("dotenv").config();
@@ -539,7 +619,7 @@ app.listen(process.env.APP_PORT, () => {
 });
 ```
 
-The code `app.listen(3000, () => { ... })` is used to start the Express application and listen for incoming HTTP requests on a specified port.
+The code `app.listen(0000, () => { ... })` is used to start the Express application and listen for incoming HTTP requests on a specified port.
 
 * The APP\_PORT represents the port number on which the server will listen.
     
