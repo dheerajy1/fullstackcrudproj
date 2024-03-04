@@ -653,4 +653,73 @@ Finally, Tested API successfully.
 
 ---
 
+# Problem Statement:
+
+User Module: Authentication and CRUD Operations with JSON Web Tokens
+
+* In this project, we aim to create a user module that enables user authentication and provides functionality for performing CRUD (Create, Read, Update, Delete) operations on user data.
+    
+* The module will allow only registered users to log in, and upon successful login, the user will be issued a JSON Web Token (JWT).
+    
+* This JWT will serve as the authentication token, enabling the user to perform various operations such as retrieving a list of users, updating user information, deleting users, and fetching user details by their unique identifier (ID).
+    
+
+In summary, the goal is to develop a secure and efficient user module that implements user authentication using JWTs and provides a range of operations for managing user data.
+
+> Execute the following steps after performing vi, vii, viii steps,
+
+### c. **Importing a user.router file**
+
+The code snippet `const userRouter = require("./api/users/user.router");` is used to import a user router from the specified file path.
+
+This imported router can be used to handle user-related routes and requests in a Node.js application, providing a structured and organized way to manage user functionalities within the application.
+
+```javascript
+const userRouter = require("./api/users/user.router");
+```
+
+### d. **Using the "express.json()" Middleware**
+
+The code snippet `app.use(express.json());` is used to enable parsing of JSON data in the request body of an Express application.
+
+This middleware function parses the incoming request body and converts it into a JavaScript object, making it easier to work with JSON data in the application, making it accessible as a JavaScript object for further processing and handling within the application.
+
+```javascript
+app.use(express.json());
+```
+
+### e. **Configuring Route Prefix for User Routes in an Express Application**
+
+The code snippet `app.use("/api/users", userRouter);` sets up a route prefix for the user-related routes in an Express application.
+
+All routes defined in the `userRouter` will be accessible under the `/api/users` endpoint, providing a dedicated and structured API endpoint for user-related functionality.
+
+```javascript
+app.use("/api/users", userRouter);
+```
+
+### f. **Configuring and Listening on Port and Starting an Express Server**
+
+The code snippet `const port = process.env.PORT || 1000;` sets up the port for the Express server to listen on.
+
+It first checks if there is a value assigned to the `process.env.PORT` environment variable, which is commonly used in cloud hosting environments. If the environment variable is not set, it defaults to port 1000.
+
+The code `app.listen(port, () => {` starts the Express server on the specified port.
+
+The `listen` method accepts the `port` variable as the first argument and a callback function as the second argument.
+
+The callback function `( ) => { console.log("server up and running on PORT :", port); })` is executed once the server starts listening.
+
+It logs a message indicating that the server is up and running, specifying the port number.
+
+```javascript
+const port = process.env.PORT || 1000;
+app.listen(port, () => {
+  console.log("server up and running on PORT :", port);
+});
+```
+
+---
+
+
 
