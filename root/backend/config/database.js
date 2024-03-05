@@ -1,15 +1,23 @@
-const { ConnectionPool } = require("mssql");
+const sql = require("msnodesqlv8");
 
-const pool = ConnectionPool({
-  host: process.env.MSSQL_HOST,
-  port: process.env.MSSQL_PORT,
+const sqlConfig = {
   user: process.env.MSSQL_USER,
   password: process.env.MSSQL_PASSWORD,
   database: process.env.MSSQL_DATABASE,
-  connectionLimit: 10,
-});
+  server: process.env.MSSQL_HOST,
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000,
+  },
+  options: {
+    Trusted_Connection: "Yes",
+    Driver: "SQL Server Native Client 11.0", // change to true for local dev / self-signed certs
+  },
+  port: process.env.MSSQL_PORT,
+};
 
-module.exports = pool;
+module.exports = { sql, sqlConfig };
 
 /*
 // config for your database

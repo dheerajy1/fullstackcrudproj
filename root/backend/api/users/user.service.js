@@ -1,30 +1,19 @@
-const pool = require("../../config/database");
+const { sql, sqlConfig } = require("../../config/database");
 
 module.exports = {
-  create: (data, callBack) => {
-    pool.query(
-      `insert into tablename (firstName, LastName, gender, email, password, number) values(?,?,?,?,?,?)`,
-      [
-        data.first_name,
-        data.last_name,
-        data.gender,
-        data.email,
-        data.password,
-        data.number,
-      ],
+  getUsers: (callBack) => {
+    sql.query(
+      sqlConfig,
+      `select [customer_id],[first_name],[last_name],gender,email,number 
+         from [customer] `,
+      [],
       (error, results, fields) => {
         if (error) {
-          return callBack(error);
+          callBack(error);
         }
+        console.log(results);
         return callBack(null, results);
       }
     );
   },
-  
 };
-
-
-
-
-
-
