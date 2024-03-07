@@ -4,8 +4,8 @@ module.exports = {
   getUsers: (callBack) => {
     sql.query(
       sqlConfig,
-      `select [customer_id],[first_name],[last_name],gender,email,number 
-         from [customer] `,
+      `select [customer_id],[first_name],[last_name],[gender],[email],[number] 
+         from [customer]`,
       [],
       (error, results, fields) => {
         if (error) {
