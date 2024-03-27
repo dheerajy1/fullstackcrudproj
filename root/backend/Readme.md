@@ -721,5 +721,17 @@ app.listen(port, () => {
 
 ---
 
+### Testing Get request by retrieving all data from table,
 
+> To do this you need to write code for service, controller, router files.
+> 
+> Skip this if you don't want to test.
+
+#### Image:
+
+A picture showing that the data retrieval was successful.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1711556146921/988d9a86-b510-4e1c-885b-d8fd8d4769eb.png)
+
+---
 
