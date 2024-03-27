@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dheerajy1/fullstackcrudproj#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.1",
     "msnodesqlv8": "^4.1.2",
